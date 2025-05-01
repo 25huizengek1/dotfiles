@@ -17,14 +17,19 @@
       "common"
       "i18n"
       "kde"
+      "kvm"
       "networking"
       "nvidia"
+      "obs-studio"
       "printing"
       # "remotebuild"
       "sudo"
     ];
 
   boot.loader.grub.device = "/dev/nvme0n1";
+  boot.extraModprobeConfig = ''
+    options nvidia NVreg_PreserveVideoMemoryAllocations=1
+  '';
 
   bluetooth = {
     enable = true;
@@ -33,6 +38,7 @@
 
   hardware = {
     firmware = [ pkgs.rtl8761b-firmware ];
+    ckb-next.enable = true;
   };
 
   # networking.firewall.allowedTCPPorts = [ ... ];

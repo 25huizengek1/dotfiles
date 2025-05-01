@@ -42,6 +42,7 @@
   ];
 
   programs.nh.enable = true;
+  programs.nh.clean.enable = true;
   programs.gnupg.agent = {
     enable = true;
     enableSSHSupport = true;

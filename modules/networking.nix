@@ -8,24 +8,6 @@
   networking = {
     hostName = host;
     networkmanager.enable = true;
-    networkmanager.wifi.backend = "iwd";
-
-    wireless = {
-      enable = lib.mkForce false;
-      iwd.enable = true;
-      iwd.settings = {
-        General = {
-          UseDefaultInterface = true;
-        };
-        IPv6 = {
-          Enabled = true;
-        };
-        Settings = {
-          AutoConnect = true;
-        };
-      };
-      userControlled.enable = true;
-    };
   };
 
   services.tailscale.enable = true;

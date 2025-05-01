@@ -1,14 +1,25 @@
 {
   pkgs,
+  lib,
   username ? "bart",
   ...
 }:
 
+let
+  gradleJdks = builtins.listToAttrs (
+    map (ver: lib.nameValuePair "JDK${toString ver}" "${pkgs.${"openjdk${toString ver}"}}") [
+      8
+      17
+      21
+    ]
+  );
+in
 {
   imports = [
     ../alacritty.nix
     ../gpg.nix
     ../git.nix
+    ../kvm.nix
   ];
 
   nixpkgs.config = {
@@ -29,6 +40,7 @@
         curl
         discord
         dust
+        ffmpeg
         gh
         google-chrome
         jetbrains.idea-ultimate
@@ -39,7 +51,7 @@
         nerd-fonts.jetbrains-mono
         nix-init
         nurl
-        openjdk23_headless
+        openjdk23
         pavucontrol
         pdfarranger
         ripgrep
@@ -53,6 +65,16 @@
         wl-clipboard
         wrk
         zip
+
+        (prismlauncher.override {
+          additionalPrograms = [ ffmpeg ];
+          jdks = [
+            graalvm-ce
+            zulu8
+            zulu17
+            zulu
+          ];
+        })
       ]
       ++ (with pkgs.kdePackages; [
         breeze-gtk
@@ -63,13 +85,15 @@
       ".gradle/gradle.properties".text = ''
         org.gradle.console=verbose
         org.gradle.daemon.idletimeout=3600000
+        org.gradle.java.installations.fromEnv=${builtins.concatStringsSep "," (lib.attrNames gradleJdks)}
       '';
     };
 
     sessionVariables = {
       EDITOR = "nano";
       SDL_VIDEODRIVER = "wayland";
-    };
+      GRADLE_LOCAL_JAVA_HOME = "${pkgs.openjdk23}";
+    } // gradleJdks;
 
     shellAliases = {
       cat = "bat";
