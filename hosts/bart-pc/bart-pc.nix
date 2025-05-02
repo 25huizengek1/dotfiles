@@ -21,6 +21,7 @@
       "networking"
       "nvidia"
       "obs-studio"
+      "podman"
       "printing"
       # "remotebuild"
       "sudo"
