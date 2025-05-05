@@ -3,7 +3,7 @@
   stdenvNoCC,
   fetchFromGitHub,
   fzf,
-  makeWrapper
+  makeWrapper,
 }:
 
 stdenvNoCC.mkDerivation {

@@ -3,13 +3,6 @@
 {
   services.xserver = {
     enable = true;
-    # displayManager.lightdm = {
-      # enable = true;
-      # greeter = {
-        # name = "lightdm-kde-greeter";
-        # package = pkgs.dtomvan.lightdm-kde-greeter.xgreeters;
-      # };
-    # };
     xkb = {
       layout = "us";
       variant = "euro";

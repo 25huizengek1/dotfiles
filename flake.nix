@@ -23,6 +23,11 @@
     };
 
     dont-track-me.url = "github:dtomvan/dont-track-me.nix";
+
+    treefmt = {
+      url = "github:numtide/treefmt-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -33,6 +38,7 @@
       sops-nix,
       flake-parts,
       pkgs-by-name-for-flake-parts,
+      treefmt,
       ...
     }@inputs:
     let
@@ -53,6 +59,7 @@
       {
         imports = [
           pkgs-by-name-for-flake-parts.flakeModule
+          treefmt.flakeModule
         ];
 
         flake = {
@@ -116,6 +123,16 @@
           {
             _module.args.pkgs = pkgs;
             pkgsDirectory = ./pkgs;
+
+            treefmt = {
+              programs.nixfmt.enable = true;
+              programs.deadnix = {
+                enable = true;
+                no-lambda-arg = true;
+                no-lambda-pattern-names = true;
+                no-underscore = true;
+              };
+            };
           };
       }
     );
