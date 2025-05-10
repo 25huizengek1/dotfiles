@@ -157,6 +157,8 @@ in
       name = "25huizengek1";
     };
 
+    key = "31805D4650DE1EC8";
+
     use-gh-cli = true;
     use-gh-dash = true;
     use-gh-branch = true;
