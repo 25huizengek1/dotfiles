@@ -1,9 +1,14 @@
-{ config, ... }:
+{ config, pkgs, ... }:
 
 {
   services.xserver.videoDrivers = [ "nvidia" ];
 
-  hardware.graphics.enable = true;
+  hardware.graphics = with pkgs; {
+    enable = true;
+    enable32Bit = true;
+    package = mesa;
+    package32 = pkgsi686Linux.mesa;
+  };
 
   hardware.nvidia = {
     modesetting.enable = true;

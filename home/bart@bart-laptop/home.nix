@@ -1,25 +1,14 @@
 {
   pkgs,
-  lib,
   username ? "bart",
   ...
 }:
 
-let
-  gradleJdks = builtins.listToAttrs (
-    map (ver: lib.nameValuePair "JDK${toString ver}" "${pkgs.${"openjdk${toString ver}"}}") [
-      8
-      17
-      21
-    ]
-  );
-in
 {
   imports = [
     ../alacritty.nix
     ../gpg.nix
     ../git.nix
-    ../kvm.nix
   ];
 
   nixpkgs.config = {
@@ -43,9 +32,6 @@ in
         ffmpeg
         gh
         google-chrome
-        jetbrains-toolbox
-        jetbrains.idea-ultimate
-        jetbrains.rust-rover
         jq
         keystore-explorer
         localsend
@@ -53,7 +39,6 @@ in
         nerd-fonts.jetbrains-mono
         nix-init
         nurl
-        openjdk23
         pavucontrol
         pdfarranger
         ripgrep
@@ -65,37 +50,17 @@ in
         vlc
         wget
         wl-clipboard
-        wrk
         zip
-
-        (prismlauncher.override {
-          additionalPrograms = [ ffmpeg ];
-          jdks = [
-            graalvm-ce
-            zulu8
-            zulu17
-            zulu
-          ];
-        })
       ]
       ++ (with pkgs.kdePackages; [
         breeze-gtk
         kde-gtk-config
       ]);
 
-    file = {
-      ".gradle/gradle.properties".text = ''
-        org.gradle.console=verbose
-        org.gradle.daemon.idletimeout=3600000
-        org.gradle.java.installations.fromEnv=${builtins.concatStringsSep "," (lib.attrNames gradleJdks)}
-      '';
-    };
-
     sessionVariables = {
       EDITOR = "nano";
       SDL_VIDEODRIVER = "wayland";
-      GRADLE_LOCAL_JAVA_HOME = "${pkgs.openjdk23}";
-    } // gradleJdks;
+    };
 
     shellAliases = {
       cat = "bat";
@@ -108,13 +73,6 @@ in
     "gh-dash/config.yml".source = ../gh-dash.yml;
     "google-chrome/NativeMessagingHosts/org.kde.plasma.browser_integration.json".source =
       "${pkgs.kdePackages.plasma-browser-integration}/etc/opt/chrome/native-messaging-hosts/org.kde.plasma.browser_integration.json";
-  };
-
-  xdg.autostart = {
-    enable = true;
-    entries = [
-      "${pkgs.jetbrains-toolbox}/share/applications/jetbrains-toolbox.desktop"
-    ];
   };
 
   programs.home-manager.enable = true;
@@ -156,11 +114,6 @@ in
     enableCompletion = true;
 
     historyControl = [ "erasedups" ];
-  };
-
-  services.nextcloud-client = {
-    enable = true;
-    startInBackground = true;
   };
 
   dont-track-me.enable = true;
