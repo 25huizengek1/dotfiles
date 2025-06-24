@@ -28,13 +28,19 @@
     "wl"
   ];
   boot.extraModulePackages = [ config.boot.kernelPackages.broadcom_sta ];
+  boot.blacklistedKernelModules = [ "b43" "bcma" ];
 
   fileSystems."/" = {
     device = "/dev/disk/by-uuid/e1fff2dc-ef0b-4cec-bd8b-8d8017fb7fb0";
     fsType = "ext4";
   };
 
-  swapDevices = [ ];
+  swapDevices = [
+    {
+      device = "/var/lib/swapfile";
+      size = 16 * 1024;
+    }
+  ];
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
   # (the default) this is the recommended approach. When using systemd-networkd it's
