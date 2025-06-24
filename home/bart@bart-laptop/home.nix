@@ -44,7 +44,6 @@
         ripgrep
         signal-desktop
         telegram-desktop
-        thefuck
         tomlq
         unzip
         vlc
@@ -64,7 +63,6 @@
 
     shellAliases = {
       cat = "bat";
-      tf = "thefuck";
     };
   };
 
@@ -87,11 +85,6 @@
     enableBashIntegration = true;
 
     settings = with builtins; fromJSON (unsafeDiscardStringContext (readFile ../oh-my-posh.json));
-  };
-
-  programs.thefuck = {
-    enable = true;
-    enableBashIntegration = true;
   };
 
   programs.direnv = {

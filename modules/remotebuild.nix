@@ -6,7 +6,7 @@
 
   nix.buildMachines = [
     {
-      hostName = "omeduostuurcentenneef.nl";
+      hostName = "vitune.app";
       sshUser = "nix-remote-builder";
       sshKey = config.sops.secrets.remotebuild.path;
       system = pkgs.stdenv.hostPlatform.system;
@@ -23,7 +23,7 @@
     group = "root";
     mode = "0600";
 
-    sopsFile = ./secrets/remotebuild;
+    sopsFile = ../secrets/remotebuild;
     format = "binary";
   };
 }
