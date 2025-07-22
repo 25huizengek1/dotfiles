@@ -5,6 +5,8 @@
   ...
 }:
 
+# TODO: for the love of god: merge these configs
+
 let
   gradleJdks = builtins.listToAttrs (
     map (ver: lib.nameValuePair "JDK${toString ver}" "${pkgs.${"openjdk${toString ver}"}}") [
@@ -43,7 +45,6 @@ in
         ffmpeg
         flake-fmt
         gh
-        google-chrome
         jetbrains-toolbox
         jetbrains.idea-ultimate
         jetbrains.rust-rover
@@ -60,7 +61,6 @@ in
         ripgrep
         signal-desktop
         telegram-desktop
-        thefuck
         tomlq
         unzip
         vlc
@@ -100,15 +100,12 @@ in
 
     shellAliases = {
       cat = "bat";
-      tf = "thefuck";
     };
   };
 
   xdg.configFile = {
     "nix-init/config.toml".source = ../nix-init.toml;
     "gh-dash/config.yml".source = ../gh-dash.yml;
-    "google-chrome/NativeMessagingHosts/org.kde.plasma.browser_integration.json".source =
-      "${pkgs.kdePackages.plasma-browser-integration}/etc/opt/chrome/native-messaging-hosts/org.kde.plasma.browser_integration.json";
   };
 
   xdg.autostart = {
@@ -120,6 +117,11 @@ in
 
   programs.home-manager.enable = true;
 
+  programs.google-chrome = {
+    enable = true;
+    nativeMessagingHosts = [ pkgs.kdePackages.plasma-browser-integration ];
+  };
+
   programs.nix-index = {
     enable = true;
     enableBashIntegration = true;
@@ -130,11 +132,6 @@ in
     enableBashIntegration = true;
 
     settings = with builtins; fromJSON (unsafeDiscardStringContext (readFile ../oh-my-posh.json));
-  };
-
-  programs.thefuck = {
-    enable = true;
-    enableBashIntegration = true;
   };
 
   programs.direnv = {
@@ -157,11 +154,22 @@ in
     enableCompletion = true;
 
     historyControl = [ "erasedups" ];
+
+    sessionVariables = {
+      PROMPT_COMMAND = "history -a; history -n";
+    };
   };
+
+  programs.lutris.enable = true;
 
   services.nextcloud-client = {
     enable = true;
     startInBackground = true;
+  };
+
+  systemd.user.services.nextcloud-client.Unit = {
+    After = [ "tray.target" ];
+    Requires = [ "tray.target" ];
   };
 
   dont-track-me.enable = true;

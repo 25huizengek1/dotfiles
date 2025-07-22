@@ -69,11 +69,14 @@
   xdg.configFile = {
     "nix-init/config.toml".source = ../nix-init.toml;
     "gh-dash/config.yml".source = ../gh-dash.yml;
-    "google-chrome/NativeMessagingHosts/org.kde.plasma.browser_integration.json".source =
-      "${pkgs.kdePackages.plasma-browser-integration}/etc/opt/chrome/native-messaging-hosts/org.kde.plasma.browser_integration.json";
   };
 
   programs.home-manager.enable = true;
+
+  programs.google-chrome = {
+    enable = true;
+    nativeMessagingHosts = [ pkgs.kdePackages.plasma-browser-integration ];
+  };
 
   programs.nix-index = {
     enable = true;
