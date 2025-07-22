@@ -27,8 +27,20 @@
     "kvm-amd"
     "wl"
   ];
-  boot.extraModulePackages = [ config.boot.kernelPackages.broadcom_sta ];
-  boot.blacklistedKernelModules = [ "b43" "bcma" ];
+  boot.blacklistedKernelModules = [
+    "b43"
+    "bcma"
+    "brcmsmac"
+  ];
+  boot.extraModulePackages = [
+    config.boot.kernelPackages.broadcom_sta
+  ];
+
+  hardware.enableAllFirmware = true;
+  hardware.firmware = [
+    # pkgs.b43Firmware_5_1_138
+    pkgs.linux-firmware
+  ];
 
   fileSystems."/" = {
     device = "/dev/disk/by-uuid/e1fff2dc-ef0b-4cec-bd8b-8d8017fb7fb0";
