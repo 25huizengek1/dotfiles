@@ -49,6 +49,10 @@
   services.xrdp.defaultWindowManager = "startplasma-x11";
   services.xrdp.openFirewall = true;
 
+  services.davfs2.enable = true;
+
+  services.cloudflare-warp.enable = true;
+
   security.polkit.extraConfig = ''
     polkit.addRule(function(action, subject) {
       if (
@@ -70,7 +74,15 @@
     ollama-cuda
     kdePackages.krfb
     kdePackages.krdc
+
+    wineWowPackages.stableFull
+    winetricks
+    wineWowPackages.waylandFull
+
+    (writeShellScriptBin "wine64" ''${lib.getExe wineWowPackages.stableFull} "$@"'')
   ];
+
+  programs.steam.enable = true;
 
   system.stateVersion = "25.05";
 }
