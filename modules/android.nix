@@ -12,6 +12,7 @@ let
       "35"
       "36"
     ];
+    includeEmulator = true;
   };
 in
 {
