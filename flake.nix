@@ -28,6 +28,11 @@
       url = "github:numtide/treefmt-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    flake-fmt = {
+      url = "github:Mic92/flake-fmt";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -39,6 +44,7 @@
       flake-parts,
       pkgs-by-name-for-flake-parts,
       treefmt,
+      flake-fmt,
       ...
     }@inputs:
     let
@@ -50,6 +56,7 @@
           config.android_sdk.accept_license = true;
           overlays = [
             self.overlays.default
+            (_prev: _final: flake-fmt.packages.${system})
           ];
         };
       config = import ./config.nix;

@@ -41,6 +41,7 @@ in
         discord
         dust
         ffmpeg
+        flake-fmt
         gh
         google-chrome
         jetbrains-toolbox
