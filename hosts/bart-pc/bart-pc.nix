@@ -42,8 +42,8 @@
     ckb-next.enable = true;
   };
 
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
+  networking.firewall.allowedTCPPorts = [ 5900 ];
+  networking.firewall.allowedUDPPorts = [ 5900 ];
 
   services.xrdp.enable = true;
   services.xrdp.defaultWindowManager = "startplasma-x11";
