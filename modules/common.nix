@@ -26,6 +26,7 @@
 
   environment.systemPackages = with pkgs; [
     age
+    comma
     curl
     git
     google-chrome
