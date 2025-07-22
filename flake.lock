@@ -73,6 +73,28 @@
         "type": "github"
       }
     },
+    "invoice": {
+      "inputs": {
+        "flake-parts": "flake-parts_2",
+        "nixpkgs": [
+          "nixpkgs"
+        ],
+        "treefmt-nix": "treefmt-nix"
+      },
+      "locked": {
+        "lastModified": 1752843107,
+        "narHash": "sha256-TqWlNpQXXSMP4mX7duP+3TfMz0ATp94RY1wHe3xeWDw=",
+        "owner": "25huizengek1",
+        "repo": "invoice",
+        "rev": "021a68e22f5917db301b8c8f09fc349aa02e0aa1",
+        "type": "github"
+      },
+      "original": {
+        "owner": "25huizengek1",
+        "repo": "invoice",
+        "type": "github"
+      }
+    },
     "nix-index-database": {
       "inputs": {
         "nixpkgs": [
@@ -145,6 +167,7 @@
         "flake-fmt": "flake-fmt",
         "flake-parts": "flake-parts",
         "home-manager": "home-manager",
+        "invoice": "invoice",
         "nix-index-database": "nix-index-database",
         "nixpkgs": "nixpkgs",
         "pkgs-by-name-for-flake-parts": "pkgs-by-name-for-flake-parts",

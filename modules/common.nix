@@ -30,6 +30,7 @@
     git
     google-chrome
     home-manager
+    invoice
     kdePackages.discover
     nano
     nil

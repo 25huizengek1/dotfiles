@@ -33,6 +33,11 @@
       url = "github:Mic92/flake-fmt";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    invoice = {
+      url = "github:25huizengek1/invoice";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -45,6 +50,7 @@
       pkgs-by-name-for-flake-parts,
       treefmt,
       flake-fmt,
+      invoice,
       ...
     }@inputs:
     let
@@ -57,6 +63,7 @@
           overlays = [
             self.overlays.default
             (_prev: _final: flake-fmt.packages.${system})
+            (_prev: _final: { invoice = invoice.packages.${system}.default; })
           ];
         };
       config = import ./config.nix;
