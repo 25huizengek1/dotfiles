@@ -23,7 +23,6 @@
       "obs-studio"
       "podman"
       "printing"
-      # "remotebuild"
       "sudo"
     ];
 

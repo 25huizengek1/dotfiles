@@ -60,6 +60,9 @@
           inherit system;
           config.allowUnfree = true;
           config.android_sdk.accept_license = true;
+          config.permittedInsecurePackages = [
+            "broadcom-sta-6.30.223.271-57-6.12.40"
+          ];
           overlays = [
             self.overlays.default
             (_prev: _final: flake-fmt.packages.${system})
@@ -116,9 +119,17 @@
                 };
                 pkgs = mkPkgs configuration.system;
                 modules = [
+                  (
+                    { options, ... }:
+                    {
+                      options.programs.google-chrome.nativeMessagingHosts =
+                        options.programs.chromium.nativeMessagingHosts;
+                    }
+                  )
                   inputs.dont-track-me.homeManagerModules.default
+                  inputs.sops-nix.homeManagerModules.sops
                   ./home/${home}/home.nix
-                  inputs.nix-index-database.hmModules.nix-index
+                  inputs.nix-index-database.homeModules.nix-index
                 ];
               }
             )

@@ -23,9 +23,6 @@
 
   boot.loader.grub.device = "/dev/sda";
 
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
-
   environment.systemPackages = with pkgs; [
     kdePackages.krfb
     kdePackages.krdc

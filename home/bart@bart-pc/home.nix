@@ -19,6 +19,7 @@ in
 {
   imports = [
     ../alacritty.nix
+    ../drop.nix
     ../gpg.nix
     ../git.nix
     ../kvm.nix
@@ -158,13 +159,6 @@ in
     sessionVariables = {
       PROMPT_COMMAND = "history -a; history -n";
     };
-  };
-
-  programs.lutris.enable = true;
-
-  services.nextcloud-client = {
-    enable = true;
-    startInBackground = true;
   };
 
   systemd.user.services.nextcloud-client.Unit = {
