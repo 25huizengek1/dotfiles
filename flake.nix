@@ -9,6 +9,12 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    plasma-manager = {
+      url = "github:nix-community/plasma-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.home-manager.follows = "home-manager";
+    };
+
     nix-index-database = {
       url = "github:nix-community/nix-index-database";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -126,6 +132,7 @@
                         options.programs.chromium.nativeMessagingHosts;
                     }
                   )
+                  inputs.plasma-manager.homeManagerModules.plasma-manager
                   inputs.dont-track-me.homeManagerModules.default
                   inputs.sops-nix.homeManagerModules.sops
                   ./home/${home}/home.nix

@@ -9,6 +9,7 @@
     ../alacritty.nix
     ../gpg.nix
     ../git.nix
+    ../plasma.nix
   ];
 
   nixpkgs.config = {

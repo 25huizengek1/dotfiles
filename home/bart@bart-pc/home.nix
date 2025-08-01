@@ -23,6 +23,7 @@ in
     ../gpg.nix
     ../git.nix
     ../kvm.nix
+    ../plasma.nix
   ];
 
   nixpkgs.config = {
