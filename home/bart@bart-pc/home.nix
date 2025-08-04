@@ -63,6 +63,7 @@ in
         ripgrep
         signal-desktop
         telegram-desktop
+        thunderbird
         tomlq
         unzip
         vlc
