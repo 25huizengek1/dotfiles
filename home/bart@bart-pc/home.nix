@@ -53,6 +53,7 @@ in
         jq
         keystore-explorer
         localsend
+        meteor-git
         mpv
         nerd-fonts.jetbrains-mono
         nix-init
