@@ -70,7 +70,6 @@
   '';
 
   environment.systemPackages = with pkgs; [
-    ollama-cuda
     kdePackages.krfb
     kdePackages.krdc
 
