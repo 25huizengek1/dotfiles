@@ -44,6 +44,11 @@
       url = "github:25huizengek1/invoice";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    copyparty = {
+      url = "github:9001/copyparty";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -57,6 +62,7 @@
       treefmt,
       flake-fmt,
       invoice,
+      copyparty,
       ...
     }@inputs:
     let
@@ -73,6 +79,7 @@
             self.overlays.default
             (_prev: _final: flake-fmt.packages.${system})
             (_prev: _final: { invoice = invoice.packages.${system}.default; })
+            copyparty.overlays.default
           ];
         };
       config = import ./config.nix;

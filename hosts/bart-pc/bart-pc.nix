@@ -15,6 +15,7 @@
       "audio"
       "bluetooth"
       "common"
+      "copyparty-fuse"
       "i18n"
       "kde"
       "kvm"

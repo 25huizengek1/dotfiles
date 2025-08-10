@@ -41,6 +41,11 @@
     local.tilp
     vscode
     wget
+
+    # Copyparty
+    copyparty
+    partyfuse
+    u2c
   ];
 
   programs.nh = {
