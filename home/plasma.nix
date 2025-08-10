@@ -7,11 +7,11 @@
         theme = "Breeze-Dark";
         size = 24;
       };
-      iconTheme = "Breeze-Dark";
+      iconTheme = "breeze-dark";
     };
 
     shortcuts = {
-      "services/Alacritty.desktop"."New" = "Alt+Return";
+      "services/Alacritty.desktop"."New" = "Meta+Return";
     };
     configFile = {
       "kdeglobals"."General"."TerminalApplication" = "alacritty";
@@ -28,6 +28,10 @@
       "kwinrc"."Plugins"."wobblywindowsEnabled" = true;
       "kwinrc"."Tiling"."padding" = 4;
       "kwinrc"."Xwayland"."Scale" = 1;
+      "kxkbrc"."Layout"."DisplayNames" = ",";
+      "kxkbrc"."Layout"."LayoutList" = "us,us";
+      "kxkbrc"."Layout"."Use" = true;
+      "kxkbrc"."Layout"."VariantList" = "euro,intl";
       "plasma-localerc"."Formats"."LANG" = "en_US.UTF-8";
       "plasmanotifyrc"."Jobs"."PermanentPopups" = false;
       "spectaclerc"."GuiConfig"."captureMode" = 0;
