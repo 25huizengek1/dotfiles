@@ -100,7 +100,8 @@ in
       EDITOR = "nano";
       SDL_VIDEODRIVER = "wayland";
       GRADLE_LOCAL_JAVA_HOME = "${pkgs.openjdk23}";
-    } // gradleJdks;
+    }
+    // gradleJdks;
 
     shellAliases = {
       cat = "bat";

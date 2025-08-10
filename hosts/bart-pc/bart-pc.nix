@@ -4,28 +4,27 @@
 }:
 
 {
-  imports =
-    [
-      ./bart-pc.hardware.nix
-    ]
-    ++ map (name: ../../modules/${name}.nix) [
-      "users/bart"
+  imports = [
+    ./bart-pc.hardware.nix
+  ]
+  ++ map (name: ../../modules/${name}.nix) [
+    "users/bart"
 
-      "android"
-      "audio"
-      "bluetooth"
-      "common"
-      "copyparty-fuse"
-      "i18n"
-      "kde"
-      "kvm"
-      "networking"
-      "nvidia"
-      "obs-studio"
-      "podman"
-      "printing"
-      "sudo"
-    ];
+    "android"
+    "audio"
+    "bluetooth"
+    "common"
+    "copyparty-fuse"
+    "i18n"
+    "kde"
+    "kvm"
+    "networking"
+    "nvidia"
+    "obs-studio"
+    "podman"
+    "printing"
+    "sudo"
+  ];
 
   boot.loader.grub.device = "/dev/nvme0n1";
   boot.extraModprobeConfig = ''

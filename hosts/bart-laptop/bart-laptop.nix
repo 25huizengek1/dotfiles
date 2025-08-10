@@ -4,22 +4,21 @@
 }:
 
 {
-  imports =
-    [
-      ./bart-laptop.hardware.nix
-    ]
-    ++ map (name: ../../modules/${name}.nix) [
-      "users/bart"
+  imports = [
+    ./bart-laptop.hardware.nix
+  ]
+  ++ map (name: ../../modules/${name}.nix) [
+    "users/bart"
 
-      "audio"
-      "bluetooth"
-      "common"
-      "i18n"
-      "kde"
-      "networking"
-      "sudo"
-      "remotebuild"
-    ];
+    "audio"
+    "bluetooth"
+    "common"
+    "i18n"
+    "kde"
+    "networking"
+    "sudo"
+    "remotebuild"
+  ];
 
   boot.loader.grub.device = "/dev/sda";
 
