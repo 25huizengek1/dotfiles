@@ -27,6 +27,7 @@
   environment.systemPackages = with pkgs; [
     age
     comma
+    copyparty
     curl
     git
     google-chrome
@@ -41,11 +42,6 @@
     local.tilp
     vscode
     wget
-
-    # Copyparty
-    copyparty
-    partyfuse
-    u2c
   ];
 
   programs.nh = {
