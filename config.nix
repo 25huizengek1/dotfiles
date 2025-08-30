@@ -3,6 +3,7 @@
     "bart-pc" = "x86_64-linux";
     "bart-laptop" = "x86_64-linux";
     "installer" = "x86_64-linux";
+    "bart-laptop-new" = "x86_64-linux";
   };
 
   homes = {
@@ -11,6 +12,10 @@
       username = "bart";
     };
     "bart@bart-laptop" = {
+      system = "x86_64-linux";
+      username = "bart";
+    };
+    "bart@bart-laptop-new" = {
       system = "x86_64-linux";
       username = "bart";
     };
