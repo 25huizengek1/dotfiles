@@ -24,13 +24,25 @@
     efi.canTouchEfiVariables = true;
     grub = {
       enable = true;
-      devices = ["nodev"];
+      devices = [ "nodev" ];
       efiSupport = true;
       useOSProber = true;
     };
   };
 
   time.hardwareClockInLocalTime = true;
+
+  hardware.graphics = {
+    enable = true;
+    extraPackages = with pkgs; [
+      intel-media-driver
+      vpl-gpu-rt
+    ];
+  };
+
+  environment.sessionVariables = {
+    LIBVA_DRIVER_NAME = "iHD";
+  };
 
   environment.systemPackages = with pkgs; [
     kdePackages.krfb
