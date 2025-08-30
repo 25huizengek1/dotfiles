@@ -2,6 +2,7 @@
   hosts = {
     "bart-pc" = "x86_64-linux";
     "bart-laptop" = "x86_64-linux";
+    "installer" = "x86_64-linux";
   };
 
   homes = {
