@@ -7,127 +7,15 @@
 {
   imports = [
     ../alacritty.nix
+    ../common.nix
     ../gpg.nix
-    ../git.nix
     ../plasma.nix
   ];
 
-  nixpkgs.config = {
-    allowUnfree = true;
-  };
+  common.gui = true;
 
   home = {
     inherit username;
     homeDirectory = "/home/${username}";
-
-    stateVersion = "25.05";
-
-    packages =
-      with pkgs;
-      [
-        bat
-        btop
-        curl
-        discord
-        dust
-        ffmpeg
-        gh
-        google-chrome
-        jq
-        keystore-explorer
-        localsend
-        mpv
-        nerd-fonts.jetbrains-mono
-        nix-init
-        nurl
-        pavucontrol
-        pdfarranger
-        ripgrep
-        signal-desktop
-        telegram-desktop
-        tomlq
-        unzip
-        vlc
-        wget
-        wl-clipboard
-        zip
-      ]
-      ++ (with pkgs.kdePackages; [
-        breeze-gtk
-        kde-gtk-config
-      ]);
-
-    sessionVariables = {
-      EDITOR = "nano";
-      SDL_VIDEODRIVER = "wayland";
-    };
-
-    shellAliases = {
-      cat = "bat";
-    };
-  };
-
-  xdg.configFile = {
-    "nix-init/config.toml".source = ../nix-init.toml;
-    "gh-dash/config.yml".source = ../gh-dash.yml;
-  };
-
-  programs.home-manager.enable = true;
-
-  programs.google-chrome = {
-    enable = true;
-    nativeMessagingHosts = [ pkgs.kdePackages.plasma-browser-integration ];
-  };
-
-  programs.nix-index = {
-    enable = true;
-    enableBashIntegration = true;
-  };
-
-  programs.oh-my-posh = {
-    enable = true;
-    enableBashIntegration = true;
-
-    settings = with builtins; fromJSON (unsafeDiscardStringContext (readFile ../oh-my-posh.json));
-  };
-
-  programs.direnv = {
-    enable = true;
-    enableBashIntegration = true;
-    nix-direnv.enable = true;
-  };
-
-  programs.vscode.enable = true;
-
-  programs.yt-dlp = {
-    enable = true;
-    settings = {
-      sponsorblock-mark = "all,-preview";
-    };
-  };
-
-  programs.bash = {
-    enable = true;
-    enableCompletion = true;
-
-    historyControl = [ "erasedups" ];
-  };
-
-  dont-track-me.enable = true;
-
-  git = {
-    enable = true;
-
-    user = {
-      email = "25huizengek1@gmail.com";
-      name = "25huizengek1";
-    };
-
-    key = "31805D4650DE1EC8";
-
-    use-gh-cli = true;
-    use-gh-dash = true;
-    use-gh-branch = true;
-    use-gh-notify = true;
   };
 }

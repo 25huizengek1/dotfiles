@@ -1,4 +1,11 @@
+{ pkgs, ... }:
+
 {
+  home.packages = with pkgs; [
+    kdePackages.breeze-gtk
+    kdePackages.kde-gtk-config
+  ];
+
   programs.plasma = {
     enable = true;
     workspace = {
