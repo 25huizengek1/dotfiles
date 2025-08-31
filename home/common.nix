@@ -68,6 +68,7 @@ in
           pavucontrol
           pdfarranger
           signal-desktop
+          super-productivity
           telegram-desktop
           thunderbird
           vlc
