@@ -13,7 +13,7 @@
   nix.channel.enable = lib.mkForce false;
   networking.hostName = "nixos-installer";
 
-  environment.systemPackages = with pkgs; [ 
+  environment.systemPackages = with pkgs; [
     gh
     git
   ];
