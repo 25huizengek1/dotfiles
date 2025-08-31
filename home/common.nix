@@ -61,6 +61,7 @@ in
         ++ lib.optionals cfg.gui [
           discord
           keystore-explorer
+          libreoffice
           localsend
           mpv
           nerd-fonts.jetbrains-mono
