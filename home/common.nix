@@ -79,13 +79,6 @@ in
       "gh-dash/config.yml".source = ./gh-dash.yml;
     };
 
-    xdg.autostart = {
-      enable = true;
-      entries = [
-        "${pkgs.jetbrains-toolbox}/share/applications/jetbrains-toolbox.desktop"
-      ];
-    };
-
     programs.home-manager.enable = true;
 
     programs.google-chrome = lib.mkIf cfg.gui {
@@ -129,11 +122,6 @@ in
       sessionVariables = {
         PROMPT_COMMAND = "history -a; history -n";
       };
-    };
-
-    systemd.user.services.nextcloud-client.Unit = lib.mkIf cfg.gui {
-      After = [ "tray.target" ];
-      Requires = [ "tray.target" ];
     };
 
     dont-track-me.enable = true;

@@ -10,12 +10,15 @@
   ++ map (name: ../../modules/${name}.nix) [
     "users/bart"
 
+    "android"
     "audio"
     "bluetooth"
+    "copyparty-fuse"
     "common"
     "i18n"
     "kde"
     "networking"
+    "printing"
     "sudo"
     "remotebuild"
   ];
