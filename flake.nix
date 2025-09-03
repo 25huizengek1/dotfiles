@@ -139,7 +139,7 @@
                         options.programs.chromium.nativeMessagingHosts;
                     }
                   )
-                  inputs.plasma-manager.homeManagerModules.plasma-manager
+                  inputs.plasma-manager.homeModules.plasma-manager
                   inputs.dont-track-me.homeManagerModules.default
                   inputs.sops-nix.homeManagerModules.sops
                   ./home/${home}/home.nix
