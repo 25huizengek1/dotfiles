@@ -17,6 +17,7 @@
     "common"
     "i18n"
     "kde"
+    "network-profiles"
     "networking"
     "printing"
     "sudo"

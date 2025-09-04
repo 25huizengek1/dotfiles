@@ -18,6 +18,7 @@
     "i18n"
     "kde"
     "kvm"
+    "network-profiles"
     "networking"
     "nvidia"
     "obs-studio"
