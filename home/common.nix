@@ -60,6 +60,7 @@ in
         ]
         ++ lib.optionals cfg.gui [
           discord
+          element-desktop
           keystore-explorer
           libreoffice
           localsend
