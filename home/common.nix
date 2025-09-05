@@ -2,6 +2,7 @@
   config,
   pkgs,
   lib,
+  inputs,
   ...
 }:
 
@@ -11,6 +12,7 @@ in
 {
   imports = [
     ./git.nix
+    inputs.sops-nix.homeManagerModules.sops
   ];
 
   options.common = {
@@ -143,6 +145,9 @@ in
       use-gh-dash = true;
       use-gh-branch = true;
       use-gh-notify = true;
+    };
+    sops = {
+      age.keyFile = "${config.home.homeDirectory}/.config/sops/age/keys.txt";
     };
   };
 }

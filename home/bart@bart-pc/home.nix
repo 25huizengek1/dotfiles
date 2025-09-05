@@ -17,6 +17,7 @@ in
 {
   imports = [
     ../alacritty.nix
+    ../copyparty-fuse.nix
     ../common.nix
     ../drop.nix
     ../gpg.nix

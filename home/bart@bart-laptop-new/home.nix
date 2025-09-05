@@ -8,6 +8,7 @@
   imports = [
     ../alacritty.nix
     ../common.nix
+    ../copyparty-fuse.nix
     ../drop.nix
     ../gpg.nix
     ../jetbrains.nix
