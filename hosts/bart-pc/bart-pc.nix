@@ -27,7 +27,16 @@
     "sudo"
   ];
 
-  boot.loader.grub.device = "/dev/nvme0n1";
+  boot.loader.grub =
+    let
+      gfxmode = "1920x1080-75";
+    in
+    {
+      device = "/dev/nvme0n1";
+      gfxmodeEfi = gfxmode;
+      gfxmodeBios = gfxmode;
+    };
+
   boot.extraModprobeConfig = ''
     options nvidia NVreg_PreserveVideoMemoryAllocations=1
   '';
