@@ -68,6 +68,7 @@ in
           localsend
           mpv
           nerd-fonts.jetbrains-mono
+          obsidian
           pavucontrol
           pdfarranger
           signal-desktop
