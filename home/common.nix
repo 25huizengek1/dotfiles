@@ -130,6 +130,8 @@ in
       };
     };
 
+    programs.keepassxc.enable = lib.mkDefault cfg.gui;
+
     dont-track-me.enable = true;
 
     git = {
