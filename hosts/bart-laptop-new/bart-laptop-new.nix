@@ -19,6 +19,7 @@
     "kde"
     "network-profiles"
     "networking"
+    "podman"
     "printing"
     "sudo"
     "remotebuild"

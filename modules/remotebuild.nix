@@ -6,7 +6,7 @@
 
   nix.buildMachines = [
     {
-      hostName = "vitune.app";
+      hostName = "78.46.150.107";
       sshUser = "nix-remote-builder";
       sshKey = config.sops.secrets.remotebuild.path;
       system = pkgs.stdenv.hostPlatform.system;
