@@ -127,6 +127,21 @@
         "type": "github"
       }
     },
+    "import-tree": {
+      "locked": {
+        "lastModified": 1752730890,
+        "narHash": "sha256-GES8fapSLGz36MMPRVNkSUWXUTtqvGQNXHjRmRLfJUY=",
+        "owner": "vic",
+        "repo": "import-tree",
+        "rev": "6ebb8cb87987b20264c09296166543fd3761d274",
+        "type": "github"
+      },
+      "original": {
+        "owner": "vic",
+        "repo": "import-tree",
+        "type": "github"
+      }
+    },
     "invoice": {
       "inputs": {
         "flake-parts": "flake-parts_2",
@@ -260,6 +275,7 @@
         "flake-fmt": "flake-fmt",
         "flake-parts": "flake-parts",
         "home-manager": "home-manager",
+        "import-tree": "import-tree",
         "invoice": "invoice",
         "nix-index-database": "nix-index-database",
         "nixpkgs": "nixpkgs",

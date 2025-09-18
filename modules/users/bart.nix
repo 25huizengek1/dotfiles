@@ -22,7 +22,6 @@
 
     packages = with pkgs; [
       kdePackages.kate
-      # thunderbird
     ];
 
     hashedPasswordFile = config.sops.secrets.bart-password.path;

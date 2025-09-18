@@ -19,10 +19,8 @@ in
     ../alacritty.nix
     ../copyparty-fuse.nix
     ../common.nix
-    ../drop.nix
     ../gpg.nix
     ../jetbrains.nix
-    ../kvm.nix
     ../plasma.nix
   ];
 

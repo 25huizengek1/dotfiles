@@ -81,7 +81,6 @@ in
     };
 
     xdg.configFile = {
-      "nix-init/config.toml".source = ./nix-init.toml;
       "gh-dash/config.yml".source = ./gh-dash.yml;
     };
 
