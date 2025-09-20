@@ -41,10 +41,7 @@
     options nvidia NVreg_PreserveVideoMemoryAllocations=1
   '';
 
-  hardware = {
-    firmware = [ pkgs.rtl8761b-firmware ];
-    ckb-next.enable = true;
-  };
+  hardware.firmware = [ pkgs.rtl8761b-firmware ];
 
   services.davfs2.enable = true;
   environment.systemPackages = with pkgs; [
