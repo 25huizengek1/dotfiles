@@ -34,7 +34,6 @@
     home-manager
     invoice
     kdePackages.discover
-    nano
     nil
     nixd
     nixfmt-rfc-style
@@ -59,6 +58,38 @@
   };
 
   programs.nix-ld.enable = true;
+
+  programs.nano = {
+    enable = true;
+    nanorc = ''
+      set historylog
+      set multibuffer
+      set positionlog
+      set locking
+
+      set tabsize 4
+      set tabstospaces
+
+      set guidestripe 80
+      set constantshow
+      set linenumbers
+      set mouse
+      set indicator
+
+      set afterends
+      set zap
+      set jumpyscrolling
+      set smarthome
+
+      set trimblanks
+      set colonparsing
+
+      set atblanks
+      set softwrap
+
+      extendsyntax nix formatter ${pkgs.nixfmt-rfc-style}
+    '';
+  };
 
   services.openssh = {
     enable = true;

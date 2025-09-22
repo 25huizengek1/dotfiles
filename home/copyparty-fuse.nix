@@ -37,8 +37,4 @@ in
     sopsFile = ./secrets/omeduoparty-pass;
     format = "binary";
   };
-
-  home.activation.unmount-old-omeduoparty-instance = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
-    ${pkgs.fuse}/bin/fusermount -uz ${mountPoint}
-  '';
 }
