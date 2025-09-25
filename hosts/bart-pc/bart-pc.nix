@@ -55,6 +55,9 @@
     (writeShellScriptBin "wine64" ''${lib.getExe wineWowPackages.stableFull} "$@"'')
   ];
 
+  networking.firewall.allowedTCPPorts = [ 5900 ];
+  networking.firewall.allowedUDPPorts = [ 5900 ];
+
   programs.steam.enable = true;
 
   system.stateVersion = "25.05";
