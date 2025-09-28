@@ -18,13 +18,6 @@ in
           };
           inherit pkgs;
           modules = [
-            (
-              { options, ... }:
-              {
-                options.programs.google-chrome.nativeMessagingHosts =
-                  options.programs.chromium.nativeMessagingHosts;
-              }
-            )
             inputs.plasma-manager.homeModules.plasma-manager
             inputs.dont-track-me.homeManagerModules.default
             inputs.sops-nix.homeManagerModules.sops

@@ -82,14 +82,15 @@ in
 
     xdg.configFile = {
       "gh-dash/config.yml".source = ./gh-dash.yml;
+      "google-chrome/NativeMessagingHosts" = lib.mkIf cfg.gui {
+        source = "${pkgs.kdePackages.plasma-browser-integration}/etc/chromium/native-messaging-hosts";
+        recursive = true;
+      };
     };
 
     programs.home-manager.enable = true;
 
-    programs.google-chrome = lib.mkIf cfg.gui {
-      enable = true;
-      nativeMessagingHosts = [ pkgs.kdePackages.plasma-browser-integration ];
-    };
+    programs.google-chrome.enable = cfg.gui;
 
     programs.nix-index = {
       enable = true;
