@@ -24,6 +24,8 @@
   ];
   nix.channel.enable = lib.mkForce false;
 
+  services.resolved.enable = true;
+
   environment.systemPackages = with pkgs; [
     age
     comma
