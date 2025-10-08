@@ -43,6 +43,6 @@
 
     mode = "0600";
     owner = "bart";
-    group = "users";
+    group = "bart";
   };
 }

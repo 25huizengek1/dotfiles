@@ -1,6 +1,7 @@
 {
   pkgs,
   lib,
+  inputs,
   ...
 }:
 
@@ -38,6 +39,7 @@
     kdePackages.discover
     nil
     nixd
+    nix-inspect
     nixfmt-rfc-style
     sops
     local.tilp
