@@ -61,7 +61,12 @@
     enableSSHSupport = true;
   };
 
-  programs.nix-ld.enable = true;
+  programs.nix-ld = {
+    enable = true;
+    libraries = with pkgs; [
+      libvirt
+    ];
+  };
 
   programs.nano = {
     enable = true;
