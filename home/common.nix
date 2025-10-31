@@ -131,6 +131,7 @@ in
     };
 
     programs.keepassxc.enable = lib.mkDefault cfg.gui;
+    programs.pandoc.enable = true;
 
     dont-track-me.enable = true;
 
@@ -139,8 +140,8 @@ in
       enable = true;
       gh.enable = true;
 
-      user.email = "25huizengek1@gmail.com";
-      user.name = "25huizengek1";
+      user.email = "bart.oos.2006@gmail.com";
+      user.name = "Bart Oostveen";
 
       key = "31805D4650DE1EC8";
     };

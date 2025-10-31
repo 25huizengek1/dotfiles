@@ -18,6 +18,8 @@
       "seat"
       "lp"
       "scanner"
+      "libvirtd"
+      "qemu-libvirtd"
     ];
 
     packages = with pkgs; [
