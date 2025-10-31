@@ -134,21 +134,17 @@ in
 
     dont-track-me.enable = true;
 
+    programs.delta.enable = true;
     git = {
       enable = true;
+      gh.enable = true;
 
-      user = {
-        email = "25huizengek1@gmail.com";
-        name = "25huizengek1";
-      };
+      user.email = "25huizengek1@gmail.com";
+      user.name = "25huizengek1";
 
       key = "31805D4650DE1EC8";
-
-      use-gh-cli = true;
-      use-gh-dash = true;
-      use-gh-branch = true;
-      use-gh-notify = true;
     };
+
     sops = {
       age.keyFile = "${config.home.homeDirectory}/.config/sops/age/keys.txt";
     };

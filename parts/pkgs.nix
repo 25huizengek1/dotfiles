@@ -19,7 +19,7 @@
         config.allowUnfree = true;
         config.android_sdk.accept_license = true;
         config.permittedInsecurePackages = [
-          "broadcom-sta-6.30.223.271-57-6.12.51"
+          "broadcom-sta-6.30.223.271-57-6.12.55"
         ];
         overlays = [
           self.overlays.default

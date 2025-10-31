@@ -5,9 +5,20 @@
   ...
 }:
 
+let
+  inherit (lib)
+    mkEnableOption
+    mkOption
+    mkIf
+    mkDefault
+    types
+    ;
+
+  cfg = config.git;
+in
 {
-  options = with lib; {
-    git.enable = mkEnableOption "Install and configure Git";
+  options = {
+    git.enable = mkEnableOption "git";
 
     git.user.email = mkOption {
       description = "git config --global user.email";
@@ -27,44 +38,52 @@
       default = null;
     };
 
-    git.use-gh-cli = mkEnableOption "Install and use the GitHub cli for authentication with GitHub";
-
-    git.use-gh-dash = mkEnableOption "Install gh-dash (only works when use-gh-cli is true)";
-
-    git.use-gh-branch = mkEnableOption "Install gh-branch (only works when use-gh-cli is true)";
-
-    git.use-gh-notify = mkEnableOption "Install gh-notify (only works when use-gh-cli is true)";
+    git.gh = mkOption {
+      description = "gh cli integration";
+      type = types.submodule {
+        options = {
+          enable = mkEnableOption "the gh cli";
+          extensions = mkOption {
+            description = "Extensions for gh";
+            type = types.listOf types.package;
+            default = with pkgs; [
+              gh-dash
+              local.gh-branch
+              gh-notify
+            ];
+          };
+        };
+      };
+      default = { };
+    };
   };
 
-  config.programs.git =
-    with lib;
-    mkIf config.git.enable {
+  config = mkIf cfg.enable {
+    programs.delta.enableGitIntegration = mkDefault true;
+
+    programs.git = {
       enable = true;
-      delta.enable = true;
 
-      package = pkgs.gitAndTools.gitFull;
+      package = pkgs.gitFull;
 
-      userEmail = config.git.user.email;
-      userName = config.git.user.name;
-
-      signing = mkIf (config.git.key != null) {
-        key = config.git.key;
+      signing = mkIf (cfg.key != null) {
+        key = cfg.key;
         signByDefault = true;
       };
 
-      extraConfig = {
+      settings = {
+        user.email = cfg.user.email;
+        user.name = cfg.user.name;
         pull.rebase = true;
         init.defaultBranch = "master";
         advice.detachedHead = false;
       };
     };
 
-  config.programs.gh = lib.mkIf config.git.use-gh-cli {
-    enable = true;
-    gitCredentialHelper.enable = true;
-    extensions =
-      lib.optional config.git.use-gh-dash pkgs.gh-dash
-      ++ lib.optional config.git.use-gh-branch pkgs.local.gh-branch
-      ++ lib.optional config.git.use-gh-notify pkgs.gh-notify;
+    programs.gh = mkIf cfg.gh.enable {
+      enable = true;
+      gitCredentialHelper.enable = true;
+      inherit (cfg.gh) extensions;
+    };
   };
 }
