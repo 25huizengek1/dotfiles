@@ -3,6 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
+    prismlauncher-nixpkgs.url = "github:nixos/nixpkgs?ref=077cb3aa7d111ff4d36e8bd18d906bb4a3d621f9";
 
     home-manager = {
       url = "github:nix-community/home-manager";

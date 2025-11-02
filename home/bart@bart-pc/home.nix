@@ -2,6 +2,7 @@
   pkgs,
   lib,
   username ? "bart",
+  inputs,
   ...
 }:
 
@@ -34,7 +35,7 @@ in
       openjdk23
       wrk
 
-      (prismlauncher.override {
+      (inputs.prismlauncher-nixpkgs.legacyPackages.x86_64-linux.prismlauncher.override {
         additionalPrograms = [ ffmpeg ];
         jdks = [
           graalvmPackages.graalvm-ce

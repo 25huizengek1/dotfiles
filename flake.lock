@@ -268,6 +268,22 @@
         "type": "github"
       }
     },
+    "prismlauncher-nixpkgs": {
+      "locked": {
+        "lastModified": 1757441125,
+        "narHash": "sha256-9RpnHoDZBwh5q9EYywXcsXfbFQHzZDr+A3oxLcF6jZo=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "077cb3aa7d111ff4d36e8bd18d906bb4a3d621f9",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "ref": "077cb3aa7d111ff4d36e8bd18d906bb4a3d621f9",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "copyparty": "copyparty",
@@ -281,6 +297,7 @@
         "nixpkgs": "nixpkgs",
         "pkgs-by-name-for-flake-parts": "pkgs-by-name-for-flake-parts",
         "plasma-manager": "plasma-manager",
+        "prismlauncher-nixpkgs": "prismlauncher-nixpkgs",
         "sops-nix": "sops-nix",
         "treefmt": "treefmt"
       }
