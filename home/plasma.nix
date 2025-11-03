@@ -33,8 +33,6 @@
       "kwinrc"."Desktops"."Rows" = 2;
       "kwinrc"."Effect-slide"."HorizontalGap" = 0;
       "kwinrc"."Effect-slide"."VerticalGap" = 0;
-      "kwinrc"."ElectricBorders"."Bottom" = "ApplicationLauncher";
-      "kwinrc"."ElectricBorders"."Top" = "KRunner";
       "kwinrc"."Plugins"."blurEnabled" = true;
       "kwinrc"."Plugins"."mousemarkEnabled" = true;
       "kwinrc"."Plugins"."sheetEnabled" = true;
