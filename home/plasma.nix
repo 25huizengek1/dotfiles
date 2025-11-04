@@ -40,6 +40,7 @@
       "kwinrc"."Tiling"."padding" = 4;
       "kwinrc"."Windows"."RollOverDesktops" = true;
       "kwinrc"."Xwayland"."Scale" = 1.5;
+      "kwinrc"."org.kde.kdecoration2".ButtonsOnLeft = "MSF";
       "kxkbrc"."Layout"."DisplayNames" = ",";
       "kxkbrc"."Layout"."LayoutList" = "us,us";
       "kxkbrc"."Layout"."Use" = true;
