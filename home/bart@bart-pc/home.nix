@@ -32,7 +32,7 @@ in
     homeDirectory = "/home/${username}";
 
     packages = with pkgs; [
-      openjdk23
+      openjdk25
       wrk
 
       (inputs.prismlauncher-nixpkgs.legacyPackages.x86_64-linux.prismlauncher.override {
@@ -55,7 +55,7 @@ in
     };
 
     sessionVariables = {
-      GRADLE_LOCAL_JAVA_HOME = "${pkgs.openjdk23}";
+      GRADLE_LOCAL_JAVA_HOME = "${pkgs.openjdk25}";
     }
     // gradleJdks;
   };
