@@ -146,6 +146,17 @@ in
       key = "31805D4650DE1EC8";
     };
 
+    programs.git.includes = [
+      {
+        condition = "hasconfig:remote.*.url:git@gitlab.utwente.nl:*/**";
+        contents.user = {
+          email = "b.oostveen@student.utwente.nl";
+          name = "Oostveen, B. (Bart, Student B-TCS)";
+          signingKey = "FAD453F45800E974";
+        };
+      }
+    ];
+
     sops = {
       age.keyFile = "${config.home.homeDirectory}/.config/sops/age/keys.txt";
     };
