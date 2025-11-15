@@ -17,7 +17,6 @@
     "kde"
     "networking"
     "sudo"
-    "remotebuild"
   ];
 
   boot.loader.grub.device = "/dev/sda";

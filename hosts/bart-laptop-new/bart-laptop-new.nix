@@ -22,7 +22,6 @@
     "podman"
     "printing"
     "sudo"
-    "remotebuild"
   ];
 
   boot.loader = {
