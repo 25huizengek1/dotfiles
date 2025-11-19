@@ -19,6 +19,10 @@
 
     shortcuts = {
       "services/Alacritty.desktop"."New" = "Meta+Return";
+      kwin."Window to Desktop 1" = "Alt+Shift+F1";
+      kwin."Window to Desktop 2" = "Alt+Shift+F2";
+      kwin."Window to Desktop 3" = "Alt+Shift+F3";
+      kwin."Window to Desktop 4" = "Alt+Shift+F4";
     };
 
     configFile = {
@@ -37,6 +41,7 @@
       "kwinrc"."Plugins"."mousemarkEnabled" = true;
       "kwinrc"."Plugins"."sheetEnabled" = true;
       "kwinrc"."Plugins"."wobblywindowsEnabled" = true;
+      "kwinrc"."TabBox"."DesktopMode" = 0;
       "kwinrc"."Tiling"."padding" = 4;
       "kwinrc"."Windows"."RollOverDesktops" = true;
       "kwinrc"."Xwayland"."Scale" = 1.5;

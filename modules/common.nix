@@ -21,6 +21,7 @@
   nix.settings.experimental-features = [
     "nix-command"
     "flakes"
+    "pipe-operators"
   ];
   nix.channel.enable = lib.mkForce false;
 
@@ -31,6 +32,7 @@
     comma
     copyparty
     curl
+    deploy-rs
     git
     google-chrome
     home-manager
