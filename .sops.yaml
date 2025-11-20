@@ -1,14 +1,10 @@
 keys:
-  - &root age1lzxxtwcxvk9slq5vn2rw35gm9r93c0w0hg0wlwgn7ctu89wxpums0r8ke7
-  - &laptop age1upq7yx5ec73eqwk89ru8asxgzry2jzskqs2jmzhttenn0ww4evpqgv7umm
   - &pc age1t388ywzzej0wqmjcc87cnkhz4jwawz9p9kg6f93xkfwxx749e4psttdrl5
-  - &ideapad age1qdslghtpq4zew5jkc6c23r9petqq3mc23xccn6hqk2qg26sx9prqdutrd3
+  - &laptop age1qdslghtpq4zew5jkc6c23r9petqq3mc23xccn6hqk2qg26sx9prqdutrd3
 
 creation_rules:
   - path_regex: secrets/[^/]+ #.secret
     key_groups:
       - age:
-          - *root
           - *laptop
           - *pc
-          - *ideapad
